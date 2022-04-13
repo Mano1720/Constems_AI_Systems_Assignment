@@ -1,0 +1,30 @@
+import matplotlib.pyplot as plt
+import seaborn as sns
+def rng(m=4, a=5, c=3):
+  rng.current = (a/m+rng.current+c)
+  return round(rng.current,1)
+
+rng.current = 3
+n_iter =20
+rng_list=[]
+for i in range(n_iter):
+  print (rng())
+  rng_list.append(rng())
+
+x=rng_list
+y=len(rng_list)
+sns.relplot(x,y)
+
+INTERVAL= 10 
+circle_points= 0
+square_points= 0
+for i in range(INTERVAL**2):
+    rand_x= x
+    rand_y=y
+    for i in rng_list:
+      origin_dist= i**2 + len(rng_list)**2
+    if origin_dist<= 1:
+        circle_points+= 1
+    square_points+= 1
+    pi = 4* circle_points/ square_points
+print("Final Estimation of Pi=", pi) 
